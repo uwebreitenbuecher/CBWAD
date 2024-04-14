@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<style>
+			div#mainContainer{		
+				background: #00b0f0;
+				padding: 15px;
+			}
+			div.box {
+				background: #add8e6;
+				margin-bottom: 15px;
+				padding: 10px;
+			}
+				div.box span.name {
+					font-weight: bold;
+				}
+				div.box span.age {
+					color: magenta;
+				}
+		</style>
+	</head>
+	<body>
+				
+		<template id="boxTemplate">
+			<div class="box">
+				<span class="name">Peter</span>
+				<span class="age">28</span>	
+			</div>
+		</template>
+		
+		<div id="mainContainer">
+			<div class="box">
+				<span class="name">Peter</span>
+				<span class="age">28</span>				
+			</div>
+		</div>
+			
+		<input type="text" id="nameBox"></input>
+		<input type="text" id="ageBox"></input>
+		
+		<script>
+			 function addStudent() {
+				let studentName = nameBox.value;
+				let studentAge = ageBox.value;
+				
+				let newBoxElement = boxTemplate.content.cloneNode(true).firstElementChild;
+					
+				newBoxElement.querySelector(".name")
+						.innerHTML = studentName;
+						
+				newBoxElement.querySelector(".age")
+						.innerHTML = studentAge;
+									
+				mainContainer.append(newBoxElement);
+			 } 
+		</script>
+
+		<a href="javascript:addStudent()">
+			Add Student
+		</a>
+
+	</body>
+</html>
+
